@@ -1,0 +1,15 @@
+<form action="/users/signup" method="post" accept-charset="utf-8">
+  <p><%= flash[:signup_error] %></p>
+
+  <label>Username: </label>
+  <input type="text" name="username" id="username"/>
+
+  <br><br>
+
+  <label>Password: </label>
+  <input type="password" name="password" id="password"/>
+
+  <br><br>
+
+  <input type="submit" value="Sign Up" name="signup" id="signup"/>
+</form>

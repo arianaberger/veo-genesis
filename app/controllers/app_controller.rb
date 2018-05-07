@@ -10,6 +10,8 @@ class AppController < Sinatra::Base
     set :session_secret, 'veogenesis_sisenegoev'
   end
 
+  register Sinatra::Flash
+
   get '/' do
     erb :index
   end

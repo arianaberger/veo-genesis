@@ -11,6 +11,7 @@ gem 'sqlite3'
 gem 'shotgun'
 gem 'bcrypt'
 gem 'tux'
+gem 'sinatra-flash', '~> 0.3.0'
 
 group :test do
   gem 'rspec'
