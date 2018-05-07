@@ -1,1 +1,14 @@
 <h1>Welcome, <%= current_user.username %></h1>
+
+<!-- DISPLAY BEINGS -->
+
+<h2><a href="/beings/new">New Being</a></h2>
+
+<h2>Edit Being:</h2>
+<form action="/beings/edit/:id" method="post" accept-charset="utf-8">
+  <input type="hidden" value="patch" name="_method" id="hidden"/>
+
+  <% @beings.each do |being| %>
+    <input type="radio" value="<%= being.name %>" name="being_id" id="<% being.id %>"/>
+  <% end %>
+</form>
