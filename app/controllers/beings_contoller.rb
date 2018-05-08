@@ -1,13 +1,9 @@
 class BeingsController < AppController
 
   get '/beings' do
-    if logged_in?
-      @users = User.all
+    @users = User.all
 
-      erb :'beings/index' 
-    else
-      redirect '/users/login'
-    end
+    erb :'beings/index' 
   end
 
   get '/beings/new' do
