@@ -1,0 +1,7 @@
+body {
+  background-color: #bcbfbf;
+}
+
+img {
+  filter: hue-rotate(180deg);
+}

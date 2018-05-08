@@ -15,5 +15,13 @@
   <input type="text" name="species" id="species"/>
 
   <br><br>
+
+  <label>Body: </label>
+  <% Part::BODY_TYPES.each do |type| %>
+    <input type="radio" value="<%= type %>" name="body_class" id="<%= type %>"/>
+  <% end %>
+
+
+  <input type="submit" value="Create" name="create" id="create"/>
   
 </form>
