@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_05_07_012207) do
 
   create_table "parts", force: :cascade do |t|
     t.string "type"
-    t.string "class"
+    t.string "model"
     t.string "color"
     t.string "size"
   end

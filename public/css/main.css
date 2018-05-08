@@ -2,6 +2,28 @@ body {
   background-color: #bcbfbf;
 }
 
-img {
-  filter: hue-rotate(180deg);
+#edit_preview {
+  position: relative;
+  width: 100px;
+  height: 140px;
 }
+
+#prev_eyes {
+  position: absolute;
+  top: 6px;
+  left: 32px;
+  z-index: 3;
+}
+
+#prev_head {
+  position: absolute;
+  left: 16px;
+  z-index: 2;
+}
+
+#prev_body {
+  position: absolute;
+  top: 48px;
+  z-index: 1;
+}
+

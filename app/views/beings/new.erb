@@ -17,11 +17,59 @@
   <br><br>
 
   <label>Body: </label>
-  <% Part::BODY_TYPES.each do |type| %>
-    <input type="radio" value="<%= type %>" name="body_class" id="<%= type %>"/>
+  <% Part::BODY_MODELS.each do |model| %>
+    <input type="radio" value="<%= model %>" name="body_model" id="<%= model %>" onchange="bodyChange(this)"/>
   <% end %>
 
+  <br><br>
 
-  <input type="submit" value="Create" name="create" id="create"/>
+  <label>Head: </label>
+  <% Part::HEAD_MODELS.each do |model| %>
+    <input type="radio" value="<%= model %>" name="head_model" id="<%= model %>" onchange="headChange(this)"/>
+  <% end %>
+
+  <br><br>
+
+  <label>Eyes: </label>
+  <% Part::EYES_MODELS.each do |model| %>
+    <input type="radio" value="<%= model %>" name="eyes_model" id="<%= model %>" onchange="eyesChange(this)"/>
+  <% end %>
+
+  <br><br>
   
+  <input type="submit" value="Create" name="create" id="create"/>
 </form>
+
+<br>
+
+<div id="edit_preview">
+  <img id="prev_head" src="/img/head3.png" width="68" height="68"/>
+  <img id="prev_body" src="/img/body2.png" width="100" height="100"/>
+  <img id="prev_eyes" src="/img/eyes2.png" width="36" height="36"/>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+
+  function bodyChange(radioObject) {
+    var id = radioObject.value;
+
+    document.getElementById("prev_body").src = `/img/body${id}.png`;
+  };
+
+  function headChange(radioObject) {
+    var id = radioObject.value;
+
+    document.getElementById("prev_head").src = `/img/head${id}.png`;
+  };
+
+  function eyesChange(radioObject) {
+    var id = radioObject.value;
+
+    document.getElementById("prev_eyes").src = `/img/eyes${id}.png`;
+  };
+  
+</script>
+
+
+
