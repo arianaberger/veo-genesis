@@ -4,6 +4,7 @@ class CreateBeings < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :species
       t.integer :age
+      t.integer :user_id
     end
   end
 end
