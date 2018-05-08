@@ -8,8 +8,9 @@ A Sinatra web application that allows a user to build a collection of lifeforms.
 
 1. Clone repo
 2. Run `bundle` in repo directory
-3. Run `shotgun` in repo directory
-4. Visit the address provided by shotgun
+3. Run `rake db:migrate` to set up the database
+4. Run `shotgun` in repo directory
+5. Visit the address provided by shotgun
 
 ## Contributing
 
