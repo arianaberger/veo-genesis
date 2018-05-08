@@ -8,10 +8,13 @@ body {
 }
 
 #being_preview {
-  position: relative;
   background-color: #efefef;
   border-style: solid;
-  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 132px;
+  height: 182px;
 }
 
 .being_display {
