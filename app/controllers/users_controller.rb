@@ -62,7 +62,6 @@ class UsersController < AppController
   get '/users/index' do
     if logged_in?
       @beings = Being.all
-      @bodies = ['/img/body1.svg', '/img/body2.svg', '/img/body3.svg']
 
       erb :'users/index'  
     else
