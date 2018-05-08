@@ -1,29 +1,38 @@
 body {
-  background-color: #bcbfbf;
+  background-color: #dddddd;
+}
+
+#new_being_form {
+  float: left;
 }
 
 #edit_preview {
   position: relative;
-  width: 100px;
-  height: 140px;
+  width: 112px;
+  height: 164px;
+  background-color: #bcbcbc;
+  border-style: solid;
+  float: left;
 }
 
 #prev_eyes {
   position: absolute;
-  top: 6px;
-  left: 32px;
+  top: 16px;
+  left: 38px;
   z-index: 3;
 }
 
 #prev_head {
   position: absolute;
-  left: 16px;
+  top: 10px;
+  left: 22px;
   z-index: 2;
 }
 
 #prev_body {
   position: absolute;
-  top: 48px;
+  top: 52px;
+  left: 6px;
   z-index: 1;
 }
 
