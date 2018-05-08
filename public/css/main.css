@@ -37,31 +37,29 @@ body {
   z-index: 1;
 }
 
-.display_being {
-  position: relative;
+.being_display {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.being_container {
+  flex-basis: auto;
   width: 112px;
   height: 164px;
-  float: left;
 }
 
 .display_eyes {
   position: absolute;
-  top: 16px;
-  left: 38px;
   z-index: 3;
 }
 
 .display_head {
   position: absolute;
-  top: 10px;
-  left: 22px;
   z-index: 2;
 }
 
 .display_body {
   position: absolute;
-  top: 52px;
-  left: 6px;
   z-index: 1;
 }
 

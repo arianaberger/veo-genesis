@@ -1,34 +1,38 @@
 <h1><%= current_user.username %>'s Beings...</h1>
 
-<% @beings.each do |being| %>
-  <div class="display_being">
-    <img class="display_head" id="head_<%= being.id %>" src="/img/head<%= being.parts[0].model %>.png" width="68" height="68"/>
-    <img class="display_body" id="body_<%= being.id %>" src="/img/body<%= being.parts[1].model %>.png" width="100" height="100"/>
-    <img class="display_eyes" id="eyes_<%= being.id %>" src="/img/eyes<%= being.parts[2].model %>.png" width="36" height="36"/>
-  </div>
+<div class="being_display">
+  <% @beings.each do |being| %>
+    <div class="being_container">
+      <img class="display_head" id="head_<%= being.id %>" src="/img/head<%= being.parts[0].model %>.png" width="100"/>
+      <img class="display_body" id="body_<%= being.id %>" src="/img/body<%= being.parts[1].model %>.png" width="100"/>
+      <img class="display_eyes" id="eyes_<%= being.id %>" src="/img/eyes<%= being.parts[2].model %>.png" width="100"/>
+    </div>
 
-  <script charset="utf-8">
-    var angle = Math.round(<%= being.parts[0].color %> * 3.6);
-    var bright = <%= being.parts[0].brightness %> / 2 + 50;
+    <script charset="utf-8">
+      var angle = Math.round(<%= being.parts[0].color %> * 3.6);
+      var bright = <%= being.parts[0].brightness %> / 2 + 50;
 
-    document.getElementById("head_<%= being.id %>").style.filter = 
-      `brightness(${bright}%) hue-rotate(${angle}deg)`;
+      document.getElementById("head_<%= being.id %>").style.filter = 
+        `brightness(${bright}%) hue-rotate(${angle}deg)`;
 
-    angle = Math.round(<%= being.parts[1].color %> * 3.6);
-    bright = <%= being.parts[1].brightness %> / 2 + 50;
+      angle = Math.round(<%= being.parts[1].color %> * 3.6);
+      bright = <%= being.parts[1].brightness %> / 2 + 50;
 
-    document.getElementById("body_<%= being.id %>").style.filter = 
-      `brightness(${bright}%) hue-rotate(${angle}deg)`;
+      document.getElementById("body_<%= being.id %>").style.filter = 
+        `brightness(${bright}%) hue-rotate(${angle}deg)`;
 
-    angle = Math.round(<%= being.parts[2].color %> * 3.6);
-    bright = <%= being.parts[2].brightness %> / 2 + 50;
+      angle = Math.round(<%= being.parts[2].color %> * 3.6);
+      bright = <%= being.parts[2].brightness %> / 2 + 50;
 
-    document.getElementById("eyes_<%= being.id %>").style.filter = 
-      `brightness(${bright}%) hue-rotate(${angle}deg)`;
-  </script>
+      document.getElementById("eyes_<%= being.id %>").style.filter = 
+        `brightness(${bright}%) hue-rotate(${angle}deg)`;
+    </script>
 
-  <br>
-<% end %>
+    <br>
+  <% end %>
+
+</div>
+
 
 
 
