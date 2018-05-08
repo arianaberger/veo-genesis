@@ -1,12 +1,43 @@
 <h1>Welcome, <%= current_user.username %></h1>
 
-<!-- DISPLAY BEINGS -->
-
 <h2><a href="/beings/new">New Being</a></h2>
 
-<form action="/beings/edit/:id" method="post" accept-charset="utf-8">
-  <input type="hidden" value="patch" name="_method" id="hidden"/>
+<div class="being_display">
+  <% current_user.beings.each do |being| %>
+    <div class="being_container">
+      <img id="head_<%= being.id %>" class="head_display" src="/img/head<%= being.parts[0].model %>.png" width="100"/>
+      <img id="body_<%= being.id %>" class="body_display" src="/img/body<%= being.parts[1].model %>.png" width="100"/>
+      <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[2].model %>.png" width="100"/>
+    </div>
 
-  <% @beings.each do |being| %>
+    <script charset="utf-8">
+      var angle = Math.round(<%= being.parts[0].color %> * 3.6);
+      var bright = <%= being.parts[0].brightness %> / 2 + 50;
+
+      document.getElementById("head_<%= being.id %>").style.filter = 
+        `brightness(${bright}%) hue-rotate(${angle}deg)`;
+
+      angle = Math.round(<%= being.parts[1].color %> * 3.6);
+      bright = <%= being.parts[1].brightness %> / 2 + 50;
+
+      document.getElementById("body_<%= being.id %>").style.filter = 
+        `brightness(${bright}%) hue-rotate(${angle}deg)`;
+
+      angle = Math.round(<%= being.parts[2].color %> * 3.6);
+      bright = <%= being.parts[2].brightness %> / 2 + 50;
+
+      document.getElementById("eyes_<%= being.id %>").style.filter = 
+        `brightness(${bright}%) hue-rotate(${angle}deg)`;
+    </script>
+
+    <br>
   <% end %>
-</form>
+
+</div>
+
+<%# <form action="/beings/edit/:id" method="post" accept-charset="utf-8"> %>
+<%#   <input type="hidden" value="patch" name="_method" id="hidden"/> %>
+
+<%#   <% @beings.each do |being| %1> %>
+<%#   <% end %1> %>
+<%# </form> %>

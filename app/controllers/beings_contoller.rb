@@ -2,7 +2,7 @@ class BeingsController < AppController
 
   get '/beings' do
     if logged_in?
-      @beings = current_user.beings
+      @users = User.all
 
       erb :'beings/index' 
     else
@@ -55,7 +55,7 @@ class BeingsController < AppController
 
     current_user.beings << being
 
-    redirect '/beings'
+    redirect '/users/index'
   end
 
 end
