@@ -3,6 +3,7 @@ body {
 }
 
 #new_being_form {
+  min-width: 240px;
   float: left;
 }
 
