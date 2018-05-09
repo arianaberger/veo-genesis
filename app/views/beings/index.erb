@@ -9,6 +9,8 @@
         <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[2].model %>.png" width="100"/>
       </div>
 
+      <br>
+
       <script charset="utf-8">
         var angle = Math.round(<%= being.parts[0].color %> * 3.6);
       var bright = <%= being.parts[0].brightness %> / 2 + 50;
@@ -28,10 +30,7 @@
       document.getElementById("eyes_<%= being.id %>").style.filter = 
         `brightness(${bright}%) hue-rotate(${angle}deg)`;
       </script>
-
-      <br>
     <% end %>
-
   </div>
 <% end %>
 

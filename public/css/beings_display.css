@@ -19,9 +19,12 @@
 }
 
 .being_container {
+  display: flex;
   flex-basis: auto;
-  width: 112px;
-  height: 164px;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 148px;
 }
 
 .head_display {

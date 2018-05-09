@@ -12,6 +12,8 @@
       </div>
     </a>
 
+    <br>
+
     <script charset="utf-8">
       var angle = Math.round(<%= being.parts[0].color %> * 3.6);
       var bright = <%= being.parts[0].brightness %> / 2 + 50;
@@ -31,15 +33,5 @@
       document.getElementById("eyes_<%= being.id %>").style.filter = 
         `brightness(${bright}%) hue-rotate(${angle}deg)`;
     </script>
-
-    <br>
   <% end %>
-
 </div>
-
-<%# <form action="/beings/edit/:id" method="post" accept-charset="utf-8"> %>
-<%#   <input type="hidden" value="patch" name="_method" id="hidden"/> %>
-
-<%#   <% @beings.each do |being| %1> %>
-<%#   <% end %1> %>
-<%# </form> %>
