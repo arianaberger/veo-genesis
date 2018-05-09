@@ -19,7 +19,7 @@ class UsersController < AppController
     already_taken = User.find_by(username: params[:username])
 
     if already_taken 
-      flash[:signup_error] = "That Username is already taken."
+      flash[:signup_error] = "That username is already taken."
       redirect '/users/signup'
     end
 
@@ -39,11 +39,18 @@ class UsersController < AppController
   end
 
   post '/users/login' do
+    fields_empty = params[:username] == "" || params[:password] == ""
+
+    if fields_empty
+      flash[:login_error] = "Username and password are required."
+      redirect '/users/login'
+    end
+
     user = User.find_by(username: params[:username])
 
     if !user
-      flash[:login_error] = "#{params[:username]} does not exist."
-      redirect '/users/signup'
+      flash[:login_error] = "User '#{params[:username]}' does not exist."
+      redirect '/users/login'
     end
 
     if !user.authenticate(params[:password])
