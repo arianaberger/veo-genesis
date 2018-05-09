@@ -70,11 +70,6 @@
       <input type="submit" value="Update" name="update" id="update"/>
     </form>
 
-    <form action="/beings/<%= @being.id %>/delete" method="post" accept-charset="utf-8">
-      <input type="hidden" value="delete" name="_method" id="hidden"/>
-
-      <input type="submit" value="Delete" name="delete" id="delete"/>
-    </form>
   </div>
 
   <div class="being_preview_container">
@@ -85,6 +80,12 @@
         <img id="eyes_preview" class="eyes_display" src="/img/eyes1.png" width="114"/>
       </div>
     </div>
+
+    <form action="/beings/<%= @being.id %>/delete" method="post" accept-charset="utf-8">
+      <input type="hidden" value="delete" name="_method" id="hidden"/>
+
+      <input type="submit" value="Delete" name="delete" id="delete"/>
+    </form>
   </div>
 
   <script charset="utf-8">

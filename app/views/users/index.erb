@@ -1,6 +1,8 @@
 <h1>Welcome, <%= current_user.username %></h1>
 
-<h2><a href="/beings/new">New Being</a></h2>
+<input type="button" value="New Being" onclick="location.href='/beings/new';"/>
+
+<br><br>
 
 <div class="being_display">
   <% current_user.beings.each do |being| %>
