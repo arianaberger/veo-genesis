@@ -1,0 +1,41 @@
+#new_being_form {
+  min-width: 240px;
+  float: left;
+}
+
+#being_preview {
+  background-color: #efefef;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 132px;
+  height: 182px;
+}
+
+.being_display {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.being_container {
+  flex-basis: auto;
+  width: 112px;
+  height: 164px;
+}
+
+.head_display {
+  position: absolute;
+  z-index: 2;
+}
+
+.body_display {
+  position: absolute;
+  z-index: 1;
+}
+
+.eyes_display {
+  position: absolute;
+  z-index: 3;
+}
+
