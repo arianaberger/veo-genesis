@@ -10,9 +10,6 @@
   </head>
 
   <body>
-    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <header>
       <div class="topnav" id="veotopnav">
 
@@ -27,26 +24,10 @@
         <% if logged_in? %>
           <a href="/users/logout">Logout</a>
         <% end %>
-
-        <a href="javascript:void(0);" class="icon" onclick="toggleResponsive()">
-          <i class="fa fa-bars"></i>
-        </a>
       </div>
     </header>
 
     <%= yield %>
 
-    <script charset="utf-8">
-      /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-      function toggleResponsive() {
-        var x = document.getElementById("veotopnav");
-
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-      }
-    </script>
   </body>
 </html>
