@@ -8,29 +8,29 @@
   <% current_user.beings.each do |being| %>
     <a href="/beings/<%= being.id %>/edit">
       <div class="being_container">
-        <img id="head_<%= being.id %>" class="head_display" src="/img/head<%= being.parts[0].model %>.png" width="100"/>
-        <img id="body_<%= being.id %>" class="body_display" src="/img/body<%= being.parts[1].model %>.png" width="100"/>
-        <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[2].model %>.png" width="100"/>
+        <img id="head_<%= being.id %>" class="head_display" src="/img/head<%= being.parts[Part::HEAD].model %>.png" width="100"/>
+        <img id="body_<%= being.id %>" class="body_display" src="/img/body<%= being.parts[Part::BODY].model %>.png" width="100"/>
+        <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[Part::EYES].model %>.png" width="100"/>
       </div>
     </a>
 
     <br>
 
     <script charset="utf-8">
-      var angle = Math.round(<%= being.parts[0].color %> * 3.6);
-      var bright = <%= being.parts[0].brightness %> / 2 + 50;
+      var angle = Math.round(<%= being.parts[Part::HEAD].color %> * 3.6);
+      var bright = <%= being.parts[Part::HEAD].brightness %> / 2 + 50;
 
       document.getElementById("head_<%= being.id %>").style.filter = 
         `brightness(${bright}%) hue-rotate(${angle}deg)`;
 
-      angle = Math.round(<%= being.parts[1].color %> * 3.6);
-      bright = <%= being.parts[1].brightness %> / 2 + 50;
+      angle = Math.round(<%= being.parts[Part::BODY].color %> * 3.6);
+      bright = <%= being.parts[Part::BODY].brightness %> / 2 + 50;
 
       document.getElementById("body_<%= being.id %>").style.filter = 
         `brightness(${bright}%) hue-rotate(${angle}deg)`;
 
-      angle = Math.round(<%= being.parts[2].color %> * 3.6);
-      bright = <%= being.parts[2].brightness %> / 2 + 50;
+      angle = Math.round(<%= being.parts[Part::EYES].color %> * 3.6);
+      bright = <%= being.parts[Part::EYES].brightness %> / 2 + 50;
 
       document.getElementById("eyes_<%= being.id %>").style.filter = 
         `brightness(${bright}%) hue-rotate(${angle}deg)`;

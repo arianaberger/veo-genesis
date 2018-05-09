@@ -66,20 +66,20 @@ class BeingsController < AppController
     being.age = params[:age].to_i == 0 ? "Unknown" : params[:age]
     being.species = params[:species] == "" ? "Unknown" : params[:species]
 
-    being.parts[0].model = params[:head_model]
-    being.parts[0].color = params[:head_color]
-    being.parts[0].brightness = params[:head_brightness]
-    being.parts[0].save
+    being.parts[Part::HEAD].model = params[:head_model]
+    being.parts[Part::HEAD].color = params[:head_color]
+    being.parts[Part::HEAD].brightness = params[:head_brightness]
+    being.parts[Part::HEAD].save
 
-    being.parts[1].model = params[:body_model]
-    being.parts[1].color = params[:body_color]
-    being.parts[1].brightness = params[:body_brightness]
-    being.parts[1].save
+    being.parts[Part::BODY].model = params[:body_model]
+    being.parts[Part::BODY].color = params[:body_color]
+    being.parts[Part::BODY].brightness = params[:body_brightness]
+    being.parts[Part::BODY].save
 
-    being.parts[2].model = params[:eyes_model]
-    being.parts[2].color = params[:eyes_color]
-    being.parts[2].brightness = params[:eyes_brightness]
-    being.parts[2].save
+    being.parts[Part::EYES].model = params[:eyes_model]
+    being.parts[Part::EYES].color = params[:eyes_color]
+    being.parts[Part::EYES].brightness = params[:eyes_brightness]
+    being.parts[Part::EYES].save
 
     being.save
 

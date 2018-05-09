@@ -13,3 +13,7 @@ body {
 #homepage p {
   text-align: center;
 }
+
+.error-text {
+  color: red;
+}
