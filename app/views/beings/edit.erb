@@ -1,6 +1,8 @@
 <div class="being_master_container">
   <div class="being_form_container">
     <form action="/beings/<%= @being.id %>/edit" method="post" accept-charset="utf-8">
+      <input type="hidden" value="patch" name="_method" id="hidden"/>
+
       <p><%= flash[:edit_being_error] %></p>
 
       <label>Name: </label>
@@ -21,7 +23,7 @@
       <label>Body: </label>
       <% Part::BODY_MODELS.each do |model| %>
         <label><%= model %></label>
-        <input type="radio" value="<%= model %>" name="body_model" id="body_model_<%= model %>" onchange="bodyChange(this)" <%= 'checked' if model == @being.parts[1].model %>/>
+        <input type="radio" value="<%= model %>" name="body_model" id="body_model_<%= model %>" onchange="bodyChange(this)" <%= 'checked' if model == @being.parts[1].model.to_i %>/>
       <% end %>
 
       <br>
@@ -37,7 +39,7 @@
       <label>Head: </label>
       <% Part::HEAD_MODELS.each do |model| %>
         <label><%= model %></label>
-        <input type="radio" value="<%= model %>" name="head_model" id="head_model_<%= model %>" onchange="headChange(this)" <%= 'checked' if model == @being.parts[0].model %>/>
+        <input type="radio" value="<%= model %>" name="head_model" id="head_model_<%= model %>" onchange="headChange(this)" <%= 'checked' if model == @being.parts[0].model.to_i %>/>
       <% end %>
 
       <br>
@@ -52,7 +54,7 @@
       <label>Eyes: </label>
       <% Part::EYES_MODELS.each do |model| %>
         <label><%= model %></label>
-        <input type="radio" value="<%= model %>" name="eyes_model" id="eyes_model_<%= model %>" onchange="eyesChange(this)" <%= 'checked' if model == @being.parts[2].model %>/>
+        <input type="radio" value="<%= model %>" name="eyes_model" id="eyes_model_<%= model %>" onchange="eyesChange(this)" <%= 'checked' if model == @being.parts[2].model.to_i %>/>
       <% end %>
 
       <br>
@@ -68,8 +70,11 @@
       <input type="submit" value="Update" name="update" id="update"/>
     </form>
 
-    <br>
+    <form action="/beings/<%= @being.id %>/delete" method="post" accept-charset="utf-8">
+      <input type="hidden" value="delete" name="_method" id="hidden"/>
 
+      <input type="submit" value="Delete" name="delete" id="delete"/>
+    </form>
   </div>
 
   <div class="being_preview_container">

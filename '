@@ -66,31 +66,45 @@ class BeingsController < AppController
     being.age = params[:age].to_i == 0 ? "Unknown" : params[:age]
     being.species = params[:species] == "" ? "Unknown" : params[:species]
 
-    being.parts[0].model = params[:head_model]
-    being.parts[0].color = params[:head_color]
-    being.parts[0].brightness = params[:head_brightness]
-    being.parts[0].save
+    head_part.model = params[:head_model]
+    head_color.model = params[:head_model]
+    head_brightness.model = params[:head_model]
+      category: "head", 
+      model: params[:head_model], 
+      color: params[:head_color], 
+      brightness: params[:head_brightness]
+    ) 
 
-    being.parts[1].model = params[:body_model]
-    being.parts[1].color = params[:body_color]
-    being.parts[1].brightness = params[:body_brightness]
-    being.parts[1].save
+    being.parts << head_part
 
-    being.parts[2].model = params[:eyes_model]
-    being.parts[2].color = params[:eyes_color]
-    being.parts[2].brightness = params[:eyes_brightness]
-    being.parts[2].save
+    body_part = Part.new(
+      category: "body",
+      model: params[:body_model], 
+      color: params[:body_color], 
+      brightness: params[:body_brightness]
+    )
+
+    being.parts << body_part
+    
+    eyes_part = Part.new(
+      category: "eyes",
+      model: params[:eyes_model], 
+      color: params[:eyes_color], 
+      brightness: params[:eyes_brightness]
+    )
+
+    being.parts << eyes_part
 
     being.save
 
-    redirect '/users/index'
+
   end
 
   delete '/beings/:id/delete' do
     being = Being.find(params[:id])
     being.destroy
 
-    redirect '/users/index'
+    erb :'/beings/index'
   end
 
 end
