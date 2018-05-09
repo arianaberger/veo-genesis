@@ -54,4 +54,10 @@ class BeingsController < AppController
     redirect '/users/index'
   end
 
+  get '/beings/:id/edit' do
+    @being = Being.find(params[:id])
+
+    erb :'/beings/edit' 
+  end
+
 end

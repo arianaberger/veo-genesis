@@ -4,11 +4,13 @@
 
 <div class="being_display">
   <% current_user.beings.each do |being| %>
-    <div class="being_container">
-      <img id="head_<%= being.id %>" class="head_display" src="/img/head<%= being.parts[0].model %>.png" width="100"/>
-      <img id="body_<%= being.id %>" class="body_display" src="/img/body<%= being.parts[1].model %>.png" width="100"/>
-      <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[2].model %>.png" width="100"/>
-    </div>
+    <a href="/beings/<%= being.id %>/edit">
+      <div class="being_container">
+        <img id="head_<%= being.id %>" class="head_display" src="/img/head<%= being.parts[0].model %>.png" width="100"/>
+        <img id="body_<%= being.id %>" class="body_display" src="/img/body<%= being.parts[1].model %>.png" width="100"/>
+        <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[2].model %>.png" width="100"/>
+      </div>
+    </a>
 
     <script charset="utf-8">
       var angle = Math.round(<%= being.parts[0].color %> * 3.6);
