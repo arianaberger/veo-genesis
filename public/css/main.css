@@ -7,4 +7,9 @@ body {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+  width: 460px;
+}
+
+#homepage p {
+  text-align: center;
 }
