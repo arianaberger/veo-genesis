@@ -13,7 +13,7 @@ class AppController < Sinatra::Base
 
   get '/' do
     if User.all.empty?
-      example_user = User.create(username: "Example", password: "elpmaxe")
+      example_user = User.create(username: "example", password: "elpmaxe")
       being = Being.new
       being.name = "Alekto"
       being.age = 1000
@@ -21,18 +21,18 @@ class AppController < Sinatra::Base
 
       being.parts = [Part.new, Part.new, Part.new]
 
-      being.parts[0].model = 2
-      being.parts[0].color = 75
-      being.parts[0].brightness = 100
-      being.parts[0].save
-      being.parts[1].model = 3
-      being.parts[1].color = 75
-      being.parts[1].brightness = 100
-      being.parts[1].save
-      being.parts[2].model = 3
-      being.parts[2].color = 75
-      being.parts[2].brightness = 100
-      being.parts[2].save
+      being.parts[Part::HEAD].model = 2
+      being.parts[Part::HEAD].color = 75
+      being.parts[Part::HEAD].brightness = 100
+      being.parts[Part::HEAD].save
+      being.parts[Part::BODY].model = 3
+      being.parts[Part::BODY].color = 75
+      being.parts[Part::BODY].brightness = 100
+      being.parts[Part::BODY].save
+      being.parts[Part::EYES].model = 3
+      being.parts[Part::EYES].color = 75
+      being.parts[Part::EYES].brightness = 100
+      being.parts[Part::EYES].save
       being.save
 
       example_user.beings << being
