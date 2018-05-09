@@ -15,3 +15,7 @@ A Sinatra web application that allows a user to build a collection of lifeforms.
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/ecssiah/veo-genesis
+
+## License
+
+This work is licensed under the [MIT License](https://github.com/ecssiah/veo-genesis/blob/master/LICENSE.txt).
