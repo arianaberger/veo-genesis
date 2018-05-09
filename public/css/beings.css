@@ -9,6 +9,14 @@
   justify-content: center;
 }
 
+.being_info_container {
+  display: flex;
+  flex-flow: column nowrap;
+  min-width: 240px;
+  align-items: center;
+  justify-content: center;
+}
+
 .being_preview_container {
   display: flex;
   flex-flow: column nowrap;

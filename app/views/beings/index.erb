@@ -3,11 +3,13 @@
 
   <div class="being_display">
     <% user.beings.each do |being| %>
-      <div class="being_container">
-        <img id="head_<%= being.id %>" class="head_display" src="/img/head<%= being.parts[Part::HEAD].model %>.png" width="100"/>
-        <img id="body_<%= being.id %>" class="body_display" src="/img/body<%= being.parts[Part::BODY].model %>.png" width="100"/>
-        <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[Part::EYES].model %>.png" width="100"/>
-      </div>
+      <a href="/beings/<%= being.id %>">
+        <div class="being_container">
+          <img id="head_<%= being.id %>" class="head_display" src="/img/head<%= being.parts[Part::HEAD].model %>.png" width="100"/>
+          <img id="body_<%= being.id %>" class="body_display" src="/img/body<%= being.parts[Part::BODY].model %>.png" width="100"/>
+          <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[Part::EYES].model %>.png" width="100"/>
+        </div>
+      </a>
 
       <br>
 

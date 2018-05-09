@@ -68,8 +68,6 @@ class UsersController < AppController
 
   get '/users/index' do
     if logged_in?
-      @beings = Being.all
-
       erb :'users/index'  
     else
       erb :'users/login'
