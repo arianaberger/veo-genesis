@@ -1,6 +1,6 @@
 # VeoGenesis
 
-A Sinatra web application that allows a user to build a collection of lifeforms.
+This is a web application that demonstrates the routing features of Sinatra by allowing the user to build a collection of lifeforms.
 
 ![beings_preview](https://raw.githubusercontent.com/ecssiah/veo-genesis/master/public/img/preview.png)
 

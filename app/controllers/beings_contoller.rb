@@ -7,11 +7,9 @@ class BeingsController < AppController
   end
 
   get '/beings/new' do
-    if logged_in?
-      erb :'beings/new'
-    else
-      redirect '/users/login'
-    end
+    redirect '/users/login' if not logged_in?
+
+    erb :'beings/new'
   end
 
   post '/beings/new' do
@@ -61,6 +59,8 @@ class BeingsController < AppController
   end
 
   get '/beings/:id/edit' do
+    redirect '/beings' if !logged_in?
+
     @being = Being.find(params[:id])
 
     erb :'/beings/edit' 
@@ -93,6 +93,8 @@ class BeingsController < AppController
   end
 
   delete '/beings/:id/delete' do
+    redirect '/beings' if !logged_in?
+
     being = Being.find(params[:id])
     being.destroy
 
