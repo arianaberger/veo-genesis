@@ -1,6 +1,9 @@
 require './config/environment'
 
 class AppController < Sinatra::Base
+
+  register Sinatra::Flash
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -8,8 +11,6 @@ class AppController < Sinatra::Base
     enable :sessions
     set :session_secret, 'veogenesis_sisenegoev'
   end
-
-  register Sinatra::Flash
 
   get '/' do
     if User.all.empty?

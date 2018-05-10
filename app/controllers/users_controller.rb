@@ -12,7 +12,15 @@ class UsersController < AppController
     fields_empty = params[:username] == '' || params[:password] == ''
 
     if fields_empty
-      flash[:signup_error] = "Username and Password are required."
+      flash[:signup_error] = "Username and password are required."
+      redirect '/users/signup'
+    end
+
+    invalid_characters = 
+      params[:username].match(/\W/) || params[:password].match(/\W/)
+
+    if invalid_characters
+      flash[:signup_error] = "Username and password must be alphanumeric characters."
       redirect '/users/signup'
     end
 
@@ -23,9 +31,7 @@ class UsersController < AppController
       redirect '/users/signup'
     end
 
-    user = User.create(
-      username: params[:username], password: params[:password]
-    )
+    user = User.create(username: params[:username], password: params[:password])
 
     login(user)
   end
@@ -64,10 +70,12 @@ class UsersController < AppController
     redirect '/'
   end
 
-  get '/users/index' do
-    erb :'users/index' if logged_in?
-
-    erb :'users/login'
+  get '/users/index' do 
+    if logged_in?
+      erb :'users/index' 
+    else
+      erb :'users/login'
+    end
   end
 
 end
