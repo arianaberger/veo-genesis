@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2018_05_07_012207) do
   create_table "beings", force: :cascade do |t|
     t.string "name"
     t.string "species"
-    t.integer "age"
+    t.string "age"
     t.integer "user_id"
   end
 

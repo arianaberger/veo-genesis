@@ -14,9 +14,9 @@ class BeingsController < AppController
 
   post '/beings/new' do
     being = Being.new
-    being.name = params[:name] == "" ? "Unknown" : params[:name] 
-    being.age = params[:age].to_i == 0 ? "Unknown" : params[:age]
-    being.species = params[:species] == "" ? "Unknown" : params[:species]
+    being.name = params[:name] == '' ? 'Unknown' : params[:name] 
+    being.age = params[:age] == '' ? 'Unknown' : params[:age]
+    being.species = params[:species] == '' ? 'Unknown' : params[:species]
 
     being.parts << Part.create(params[:head])
     being.parts << Part.create(params[:body])
@@ -44,9 +44,9 @@ class BeingsController < AppController
 
   patch '/beings/:id/edit' do
     being = Being.find(params[:id])
-    being.name = params[:name] == "" ? "Unknown" : params[:name] 
-    being.age = params[:age].to_i == 0 ? "Unknown" : params[:age]
-    being.species = params[:species] == "" ? "Unknown" : params[:species]
+    being.name = params[:name] == '' ? 'Unknown' : params[:name] 
+    being.age = params[:age] == '' ? 'Unknown' : params[:age]
+    being.species = params[:species] == '' ? 'Unknown' : params[:species]
 
     being.parts[Part::HEAD].update(params[:head])
     being.parts[Part::BODY].update(params[:body])

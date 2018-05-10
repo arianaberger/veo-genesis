@@ -18,7 +18,7 @@ class AppController < Sinatra::Base
 
       being = Being.new
       being.name = "Alekto"
-      being.age = 1000
+      being.age = "1000"
       being.species = "Erinyes"
       being.parts = [
         Part.create(model: 2, color: 75, brightness: 100), 

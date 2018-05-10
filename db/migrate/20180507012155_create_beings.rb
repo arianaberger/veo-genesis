@@ -3,7 +3,7 @@ class CreateBeings < ActiveRecord::Migration[5.2]
     create_table :beings do |t|
       t.string :name
       t.string :species
-      t.integer :age
+      t.string :age
       t.integer :user_id
     end
   end
