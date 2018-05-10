@@ -19,7 +19,6 @@ class AppController < Sinatra::Base
       being.name = "Alekto"
       being.age = 1000
       being.species = "Erinyes"
-
       being.parts = [
         Part.create(model: 2, color: 75, brightness: 100), 
         Part.create(model: 3, color: 75, brightness: 80), 
@@ -27,7 +26,6 @@ class AppController < Sinatra::Base
       ]
 
       being.save
-
       user.beings << being
     end
 
