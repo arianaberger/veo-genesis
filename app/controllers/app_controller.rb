@@ -13,29 +13,22 @@ class AppController < Sinatra::Base
 
   get '/' do
     if User.all.empty?
-      example_user = User.create(username: "example", password: "elpmaxe")
+      user = User.create(username: "example", password: "example")
+
       being = Being.new
       being.name = "Alekto"
       being.age = 1000
       being.species = "Erinyes"
 
-      being.parts = [Part.new, Part.new, Part.new]
+      being.parts = [
+        Part.create(model: 2, color: 75, brightness: 100), 
+        Part.create(model: 3, color: 75, brightness: 80), 
+        Part.create(model: 3, color: 60, brightness: 90)
+      ]
 
-      being.parts[Part::HEAD].model = 2
-      being.parts[Part::HEAD].color = 75
-      being.parts[Part::HEAD].brightness = 100
-      being.parts[Part::HEAD].save
-      being.parts[Part::BODY].model = 3
-      being.parts[Part::BODY].color = 75
-      being.parts[Part::BODY].brightness = 100
-      being.parts[Part::BODY].save
-      being.parts[Part::EYES].model = 3
-      being.parts[Part::EYES].color = 75
-      being.parts[Part::EYES].brightness = 100
-      being.parts[Part::EYES].save
       being.save
 
-      example_user.beings << being
+      user.beings << being
     end
 
     erb :index

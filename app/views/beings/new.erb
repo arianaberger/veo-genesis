@@ -21,47 +21,47 @@
       <label>Body: </label>
       <% Part::BODY_MODELS.each do |model| %>
         <label><%= model %></label>
-        <input type="radio" value="<%= model %>" name="body_model" id="body_model_<%= model %>" onchange="bodyChange(this)" <%= 'checked' if model == 1 %>/>
+        <input type="radio" value="<%= model %>" name="body[model]" id="body_model_<%= model %>" onchange="bodyChange(this)" <%= 'checked' if model == 1 %>/>
       <% end %>
 
       <br>
 
       <label>Color: </label>
-      <input type="range" value="100" name="body_color" id="body_color" oninput="bodyColorChange(this)"/> 
+      <input type="range" value="100" name="body[color]" id="body_color" oninput="bodyColorChange(this)"/> 
       <br>
       <label>Brightness: </label>
-      <input type="range" value="100" name="body_brightness" id="body_brightness" oninput="bodyBrightnessChange(this)"/>
+      <input type="range" value="100" name="body[brightness]" id="body_brightness" oninput="bodyBrightnessChange(this)"/>
 
       <br><br>
 
       <label>Head: </label>
       <% Part::HEAD_MODELS.each do |model| %>
         <label><%= model %></label>
-        <input type="radio" value="<%= model %>" name="head_model" id="head_model_<%= model %>" onchange="headChange(this)" <%= 'checked' if model == 1 %>/>
+        <input type="radio" value="<%= model %>" name="head[model]" id="head_model_<%= model %>" onchange="headChange(this)" <%= 'checked' if model == 1 %>/>
       <% end %>
 
       <br>
 
       <label>Color: </label>
-      <input type="range" value="100" name="head_color" id="head_color" oninput="headColorChange(this)"/> <br>
+      <input type="range" value="100" name="head[color]" id="head_color" oninput="headColorChange(this)"/> <br>
       <label>Brightness: </label>
-      <input type="range" value="100" name="head_brightness" id="head_brightness" oninput="headBrightnessChange(this)"/>
+      <input type="range" value="100" name="head[brightness]" id="head_brightness" oninput="headBrightnessChange(this)"/>
 
       <br><br>
 
       <label>Eyes: </label>
       <% Part::EYES_MODELS.each do |model| %>
         <label><%= model %></label>
-        <input type="radio" value="<%= model %>" name="eyes_model" id="eyes_model_<%= model %>" onchange="eyesChange(this)" <%= 'checked' if model == 1 %>/>
+        <input type="radio" value="<%= model %>" name="eyes[model]" id="eyes_model_<%= model %>" onchange="eyesChange(this)" <%= 'checked' if model == 1 %>/>
       <% end %>
 
       <br>
 
       <label>Color: </label>
-      <input type="range" value="100" name="eyes_color" id="eyes_color" oninput="eyesColorChange(this)"/> 
+      <input type="range" value="100" name="eyes[color]" id="eyes_color" oninput="eyesColorChange(this)"/> 
       <br>
       <label>Brightness: </label>
-      <input type="range" value="100" name="eyes_brightness" id="eyes_brightness" oninput="eyesBrightnessChange(this)"/>
+      <input type="range" value="100" name="eyes[brightness]" id="eyes_brightness" oninput="eyesBrightnessChange(this)"/>
 
       <br><br>
 
