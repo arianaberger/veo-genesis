@@ -31,11 +31,9 @@ class UsersController < AppController
   end
 
   get '/users/login' do
-    if logged_in?
-      redirect '/users/index'
-    else
-      erb :'/users/login'
-    end
+    redirect '/users/index' if logged_in? 
+
+    erb :'/users/login'
   end
 
   post '/users/login' do
@@ -67,11 +65,9 @@ class UsersController < AppController
   end
 
   get '/users/index' do
-    if logged_in?
-      erb :'users/index'  
-    else
-      erb :'users/login'
-    end
+    erb :'users/index' if logged_in?
+
+    erb :'users/login'
   end
 
 end

@@ -57,8 +57,6 @@ class BeingsController < AppController
   end
 
   delete '/beings/:id/delete' do
-    redirect '/beings' if !logged_in?
-
     being = Being.find(params[:id])
     being.destroy
 
