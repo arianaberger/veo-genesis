@@ -1,19 +1,22 @@
 <div class="main-content">
 
-  <form action="/users/login" method="post" accept-charset="utf-8">
+  <div class="login-signup-container">
     <p class="error-text"><%= flash[:login_error] %></p>
 
-    <label>Username: </label>
-    <input type="text" value="" name="username" id="username"/>
+    <form action="/users/login" method="post" accept-charset="utf-8">
 
-    <br><br>
+      <label>Username: </label>
+      <input type="text" value="" name="username" id="username"/>
 
-    <label>Password: </label>
-    <input type="password" value="" name="password" id="password"/>
+      <br><br>
 
-    <br><br>
+      <label>Password: </label>
+      <input type="password" value="" name="password" id="password"/>
 
-    <input type="submit" value="Log In" name="login" id="login"/>
-  </form>
+      <br><br>
+
+      <input type="submit" value="Log In" name="login" id="login"/>
+    </form>
+  </div>
 
 </div>

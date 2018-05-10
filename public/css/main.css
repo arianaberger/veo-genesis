@@ -9,6 +9,14 @@ body {
   min-height: 320px;
 }
 
+.login-signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  min-width: 340px;
+}
+
 #homepage {
   display: flex;
   flex-flow: column nowrap;
