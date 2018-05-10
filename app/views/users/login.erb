@@ -1,15 +1,19 @@
-<form action="/users/login" method="post" accept-charset="utf-8">
-  <p class="error-text"><%= flash[:login_error] %></p>
+<div class="main-content">
 
-  <label>Username: </label>
-  <input type="text" value="" name="username" id="username"/>
+  <form action="/users/login" method="post" accept-charset="utf-8">
+    <p class="error-text"><%= flash[:login_error] %></p>
 
-  <br><br>
+    <label>Username: </label>
+    <input type="text" value="" name="username" id="username"/>
 
-  <label>Password: </label>
-  <input type="password" value="" name="password" id="password"/>
+    <br><br>
 
-  <br><br>
-  
-  <input type="submit" value="Log In" name="login" id="login"/>
-</form>
+    <label>Password: </label>
+    <input type="password" value="" name="password" id="password"/>
+
+    <br><br>
+
+    <input type="submit" value="Log In" name="login" id="login"/>
+  </form>
+
+</div>

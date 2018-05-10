@@ -1,23 +1,24 @@
-<h1>Welcome, <%= current_user.username %></h1>
+<div id="user-page">
+  <h1>Welcome, <%= current_user.username %></h1>
 
-<input type="button" value="New Being" onclick="location.href='/beings/new';"/>
+  <input type="button" value="New Being" onclick="location.href='/beings/new';"/>
 
-<br><br>
+  <br><br>
 
-<div class="being_display">
-  <% current_user.beings.each do |being| %>
-    <a href="/beings/<%= being.id %>/edit">
-      <div class="being_container">
-        <img id="head_<%= being.id %>" class="head_display" src="/img/head<%= being.parts[Part::HEAD].model %>.png" width="100"/>
-        <img id="body_<%= being.id %>" class="body_display" src="/img/body<%= being.parts[Part::BODY].model %>.png" width="100"/>
-        <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[Part::EYES].model %>.png" width="100"/>
-      </div>
-    </a>
+  <div class="being_display">
+    <% current_user.beings.each do |being| %>
+      <a href="/beings/<%= being.id %>/edit">
+        <div class="being_container">
+          <img id="head_<%= being.id %>" class="head_display" src="/img/head<%= being.parts[Part::HEAD].model %>.png" width="100"/>
+          <img id="body_<%= being.id %>" class="body_display" src="/img/body<%= being.parts[Part::BODY].model %>.png" width="100"/>
+          <img id="eyes_<%= being.id %>" class="eyes_display" src="/img/eyes<%= being.parts[Part::EYES].model %>.png" width="100"/>
+        </div>
+      </a>
 
-    <br>
+      <br>
 
-    <script charset="utf-8">
-      var angle = Math.round(<%= being.parts[Part::HEAD].color %> * 3.6);
+      <script charset="utf-8">
+        var angle = Math.round(<%= being.parts[Part::HEAD].color %> * 3.6);
       var bright = <%= being.parts[Part::HEAD].brightness %> / 2 + 50;
 
       document.getElementById("head_<%= being.id %>").style.filter = 
@@ -34,6 +35,7 @@
 
       document.getElementById("eyes_<%= being.id %>").style.filter = 
         `brightness(${bright}%) hue-rotate(${angle}deg)`;
-    </script>
-  <% end %>
+      </script>
+    <% end %>
+  </div>
 </div>

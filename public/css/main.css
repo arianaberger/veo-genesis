@@ -2,6 +2,13 @@ body {
   background-color: #dddddd;
 }
 
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
 #homepage {
   display: flex;
   flex-flow: column nowrap;
