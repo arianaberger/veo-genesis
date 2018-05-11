@@ -31,20 +31,17 @@
       var angle = Math.round(<%= @being.parts[Part::HEAD].color %> * 3.6);
       var bright = <%= @being.parts[Part::HEAD].brightness %> / 2 + 50;
 
-      document.getElementById("head_<%= @being.id %>").style.filter = 
-        `brightness(${bright}%) hue-rotate(${angle}deg)`;
+      document.getElementById("head_<%= @being.id %>").style.filter = `brightness(${bright}%) hue-rotate(${angle}deg)`;
 
       angle = Math.round(<%= @being.parts[Part::BODY].color %> * 3.6);
       bright = <%= @being.parts[Part::BODY].brightness %> / 2 + 50;
 
-      document.getElementById("body_<%= @being.id %>").style.filter = 
-        `brightness(${bright}%) hue-rotate(${angle}deg)`;
+      document.getElementById("body_<%= @being.id %>").style.filter = `brightness(${bright}%) hue-rotate(${angle}deg)`;
 
       angle = Math.round(<%= @being.parts[Part::EYES].color %> * 3.6);
       bright = <%= @being.parts[Part::EYES].brightness %> / 2 + 50;
 
-      document.getElementById("eyes_<%= @being.id %>").style.filter = 
-        `brightness(${bright}%) hue-rotate(${angle}deg)`;
+      document.getElementById("eyes_<%= @being.id %>").style.filter = `brightness(${bright}%) hue-rotate(${angle}deg)`;
     </script>
   </div>
 

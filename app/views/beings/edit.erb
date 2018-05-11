@@ -1,10 +1,11 @@
 <div class="main-content">
+
   <div class="being_master_container">
     <div class="being_form_container">
       <form action="/beings/<%= @being.id %>/edit" method="post" accept-charset="utf-8">
         <input type="hidden" value="patch" name="_method" id="hidden"/>
 
-        <p><%= flash[:edit_being_error] %></p>
+        <br>
 
         <label>Name: </label>
         <input type="text" value="<%= @being.name %>" name="name" id="name"/>
@@ -21,6 +22,21 @@
 
         <br><br>
 
+        <label>Head: </label>
+        <% Part::HEAD_MODELS.each do |model| %>
+          <label><%= model %></label>
+          <input type="radio" value="<%= model %>" name="head[model]" id="head_model_<%= model %>" onchange="headChange(this)" <%= 'checked' if model == @being.parts[Part::HEAD].model.to_i %>/>
+        <% end %>
+
+        <br>
+
+        <label>Color: </label>
+        <input type="range" value="<%= @being.parts[0].color %>" name="head[color]" id="head_color" oninput="headColorChange(this)"/> <br>
+        <label>Brightness: </label>
+        <input type="range" value="<%= @being.parts[0].brightness %>" name="head[brightness]" id="head_brightness" oninput="headBrightnessChange(this)"/>
+
+        <br><br>
+
         <label>Body: </label>
         <% Part::BODY_MODELS.each do |model| %>
           <label><%= model %></label>
@@ -34,21 +50,6 @@
         <br>
         <label>Brightness: </label>
         <input type="range" value="<%= @being.parts[1].brightness %>" name="body[brightness]" id="body_brightness" oninput="bodyBrightnessChange(this)"/>
-
-        <br><br>
-
-        <label>Head: </label>
-        <% Part::HEAD_MODELS.each do |model| %>
-          <label><%= model %></label>
-          <input type="radio" value="<%= model %>" name="head[model]" id="head_model_<%= model %>" onchange="headChange(this)" <%= 'checked' if model == @being.parts[Part::HEAD].model.to_i %>/>
-        <% end %>
-
-        <br>
-
-        <label>Color: </label>
-        <input type="range" value="<%= @being.parts[0].color %>" name="head[color]" id="head_color" oninput="headColorChange(this)"/> <br>
-        <label>Brightness: </label>
-        <input type="range" value="<%= @being.parts[0].brightness %>" name="head[brightness]" id="head_brightness" oninput="headBrightnessChange(this)"/>
 
         <br><br>
 
@@ -70,56 +71,43 @@
 
         <input type="submit" value="Update" name="update" id="update"/>
       </form>
-
     </div>
 
     <div class="being_preview_container">
       <div class="being_preview">
         <div class="being_container">
-          <img id="body_preview" class="body_display" src="/img/body1.png" width="114"/>
           <img id="head_preview" class="head_display" src="/img/head1.png" width="114"/>
+          <img id="body_preview" class="body_display" src="/img/body1.png" width="114"/>
           <img id="eyes_preview" class="eyes_display" src="/img/eyes1.png" width="114"/>
         </div>
       </div>
 
       <form action="/beings/<%= @being.id %>/delete" method="post" accept-charset="utf-8">
         <input type="hidden" value="delete" name="_method" id="hidden"/>
-
         <input type="submit" value="Delete" name="delete" id="delete"/>
       </form>
     </div>
 
     <script charset="utf-8">
-      document.getElementById("body_preview").src = 
-      `/img/body<%= @being.parts[Part::BODY].model %>.png`;
+      var angle = Math.round(<%= @being.parts[Part::HEAD].color %> * 3.6);
+      var bright = <%= @being.parts[Part::HEAD].brightness %> / 2 + 50;
 
-    var angle = Math.round(<%= @being.parts[Part::BODY].color %> * 3.6);
-    var bright = <%= @being.parts[Part::BODY].brightness %> / 2 + 50;
+      document.getElementById("head_preview").src = `/img/head<%= @being.parts[Part::HEAD].model %>.png`;
+      document.getElementById("head_preview").style.filter = `brightness(${bright}%) hue-rotate(${angle}deg)`;
+      angle = Math.round(<%= @being.parts[Part::BODY].color %> * 3.6);
+      bright = <%= @being.parts[Part::BODY].brightness %> / 2 + 50;
 
-    document.getElementById("body_preview").style.filter = 
-      `brightness(${bright}%) hue-rotate(${angle}deg)`;
+      document.getElementById("body_preview").src = `/img/body<%= @being.parts[Part::BODY].model %>.png`;
+      document.getElementById("body_preview").style.filter = `brightness(${bright}%) hue-rotate(${angle}deg)`;
 
-    document.getElementById("head_preview").src = 
-      `/img/head<%= @being.parts[Part::HEAD].model %>.png`;
+      angle = Math.round(<%= @being.parts[Part::EYES].color %> * 3.6);
+      bright = <%= @being.parts[Part::EYES].brightness %> / 2 + 50;
 
-    var angle = Math.round(<%= @being.parts[Part::HEAD].color %> * 3.6);
-    var bright = <%= @being.parts[Part::HEAD].brightness %> / 2 + 50;
-
-    document.getElementById("head_preview").style.filter = 
-      `brightness(${bright}%) hue-rotate(${angle}deg)`;
-
-    document.getElementById("eyes_preview").src = 
-      `/img/eyes<%= @being.parts[Part::EYES].model %>.png`;
-
-    var angle = Math.round(<%= @being.parts[Part::EYES].color %> * 3.6);
-    var bright = <%= @being.parts[Part::EYES].brightness %> / 2 + 50;
-
-    document.getElementById("eyes_preview").style.filter = 
-      `brightness(${bright}%) hue-rotate(${angle}deg)`;
+      document.getElementById("eyes_preview").src = `/img/eyes<%= @being.parts[Part::EYES].model %>.png`;
+      document.getElementById("eyes_preview").style.filter = `brightness(${bright}%) hue-rotate(${angle}deg)`;
     </script>
-
   </div>
 
 </div>
 
-<script src="/js/edit_being.js"></script>
+<script src="/js/customize_being.js"></script>

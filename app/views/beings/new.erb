@@ -1,8 +1,9 @@
 <div class="main-content">
+
   <div class="being_master_container">
     <div class="being_form_container">
       <form action="/beings/new" method="post" accept-charset="utf-8">
-        <p><%= flash[:new_being_error] %></p>
+        <br> 
 
         <label>Name: </label>
         <input type="text" name="name" id="name"/>
@@ -19,6 +20,21 @@
 
         <br><br>
 
+        <label>Head: </label>
+        <% Part::HEAD_MODELS.each do |model| %>
+          <label><%= model %></label>
+          <input type="radio" value="<%= model %>" name="head[model]" id="head_model_<%= model %>" onchange="headChange(this)" <%= 'checked' if model == 1 %>/>
+        <% end %>
+
+        <br>
+
+        <label>Color: </label>
+        <input type="range" value="100" name="head[color]" id="head_color" oninput="headColorChange(this)"/> <br>
+        <label>Brightness: </label>
+        <input type="range" value="100" name="head[brightness]" id="head_brightness" oninput="headBrightnessChange(this)"/>
+
+        <br><br>
+
         <label>Body: </label>
         <% Part::BODY_MODELS.each do |model| %>
           <label><%= model %></label>
@@ -32,21 +48,6 @@
         <br>
         <label>Brightness: </label>
         <input type="range" value="100" name="body[brightness]" id="body_brightness" oninput="bodyBrightnessChange(this)"/>
-
-        <br><br>
-
-        <label>Head: </label>
-        <% Part::HEAD_MODELS.each do |model| %>
-          <label><%= model %></label>
-          <input type="radio" value="<%= model %>" name="head[model]" id="head_model_<%= model %>" onchange="headChange(this)" <%= 'checked' if model == 1 %>/>
-        <% end %>
-
-        <br>
-
-        <label>Color: </label>
-        <input type="range" value="100" name="head[color]" id="head_color" oninput="headColorChange(this)"/> <br>
-        <label>Brightness: </label>
-        <input type="range" value="100" name="head[brightness]" id="head_brightness" oninput="headBrightnessChange(this)"/>
 
         <br><br>
 
@@ -76,8 +77,8 @@
     <div class="being_preview_container">
       <div class="being_preview">
         <div class="being_container">
-          <img id="body_preview" class="body_display" src="/img/body1.png" width="114"/>
           <img id="head_preview" class="head_display" src="/img/head1.png" width="114"/>
+          <img id="body_preview" class="body_display" src="/img/body1.png" width="114"/>
           <img id="eyes_preview" class="eyes_display" src="/img/eyes1.png" width="114"/>
         </div>
       </div>
@@ -87,4 +88,4 @@
 
 </div>
 
-<script src="/js/edit_being.js"></script>
+<script src="/js/customize_being.js"></script>
