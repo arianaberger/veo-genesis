@@ -94,6 +94,7 @@
 
       document.getElementById("head_preview").src = `/img/head<%= @being.parts[Part::HEAD].model %>.png`;
       document.getElementById("head_preview").style.filter = `brightness(${bright}%) hue-rotate(${angle}deg)`;
+      
       angle = Math.round(<%= @being.parts[Part::BODY].color %> * 3.6);
       bright = <%= @being.parts[Part::BODY].brightness %> / 2 + 50;
 
