@@ -20,7 +20,7 @@ class UsersController < AppController
       params[:username].match(/\W/) || params[:password].match(/\W/)
 
     if invalid_characters
-      flash[:signup_error] = "Username and password must be alphanumeric characters."
+      flash[:signup_error] = "Username and password must contain only letters, numbers, or underscores."
       redirect '/users/signup'
     end
 

@@ -1,3 +1,4 @@
+// Body functions
 function bodyChange(radioObject) {
   var model = radioObject.value;
 
@@ -20,6 +21,7 @@ function bodyBrightnessChange(rangeObject) {
     `brightness(${bright}%) hue-rotate(${angle}deg)`;
 };
 
+// Head functions
 function headChange(radioObject) {
   var model = radioObject.value;
 
@@ -42,6 +44,7 @@ function headBrightnessChange(rangeObject) {
     `brightness(${bright}%) hue-rotate(${angle}deg)`;
 };
 
+// Eye functions
 function eyesChange(radioObject) {
   var model = radioObject.value;
 

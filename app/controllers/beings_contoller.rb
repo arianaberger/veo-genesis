@@ -21,8 +21,8 @@ class BeingsController < AppController
     being.parts << Part.create(params[:head])
     being.parts << Part.create(params[:body])
     being.parts << Part.create(params[:eyes])
-    being.save
 
+    being.save
     current_user.beings << being
 
     redirect '/users/index'
@@ -51,6 +51,7 @@ class BeingsController < AppController
     being.parts[Part::HEAD].update(params[:head])
     being.parts[Part::BODY].update(params[:body])
     being.parts[Part::EYES].update(params[:eyes])
+
     being.save
 
     redirect '/users/index'
