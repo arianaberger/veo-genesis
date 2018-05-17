@@ -13,17 +13,18 @@ class BeingsController < AppController
   end
 
   post '/beings/new' do
-    being = Being.new
+    being = current_user.beings.build
+
     being.name = params[:name] == '' ? 'Unknown' : params[:name] 
     being.age = params[:age] == '' ? 'Unknown' : params[:age]
     being.species = params[:species] == '' ? 'Unknown' : params[:species]
 
+    # hidden dependency
     being.parts << Part.create(params[:head])
     being.parts << Part.create(params[:body])
     being.parts << Part.create(params[:eyes])
 
     being.save
-    current_user.beings << being
 
     redirect '/users/index'
   end
